@@ -26,11 +26,11 @@ scoreRightWrist = 0;
 
 game_status = "";
 
-var doggo_theme = new Audio("https://saantonandre.github.io/doggo_theme.wav");
 
  function preload() {
-  ball_touch_paddel = loadSound("ball_touch_paddel.wav");
-  missed = loadSound("missed.wav");
+  ball_touch_paddel = loadSound("misc124.wav");
+  missed = loadSound("missed.mp3");
+  doggo_theme = loadSound("doggo_theme.wav")
 }
 
 function setup(){
@@ -89,7 +89,8 @@ function draw(){
 
   if(game_status == "start")
   {
-    document.getElementById("status").innerHTML = "Game Is Loaded"; 
+    document.getElementById("status").innerHTML = "Game Is Loaded";
+    
     paddleInCanvas();
         
     
@@ -104,10 +105,18 @@ function draw(){
     fill("#FFA500");
     stroke("#FFA500");
     var paddle2y =ball.y-paddle2Height/2;  rect(paddle2Y,paddle2y,paddle2,paddle2Height,100);
+    
+   
     midline();
-   drawScore();
-   models();
-   move();
+    
+    
+    drawScore();
+
+   
+    models();
+
+    
+    move();
 
     }
 
@@ -148,7 +157,7 @@ function drawScore(){
 }
 
 
-//very important function of this game
+
 function move(){
    fill(50,350,0);
    stroke(255,0,0);
@@ -187,8 +196,6 @@ if(pcscore ==4){
        ball.dy =- ball.dy;
    }   
 }
-
-
 
 function models(){
     textSize(18);
